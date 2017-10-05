@@ -23,7 +23,17 @@ module.exports = {
             { test: /\.ts(x?)$/, exclude: /node_modules/, use: ['babel-loader', 'ts-loader'] },
             { enforce: "pre", test: /\.js$/, use: ['source-map-loader'] },
             { test: /\.js$/, use:['babel-loader'], exclude: /node_modules/ },
-            { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']}
+            { test: /\.scss$/, use: [
+                'style-loader', 
+                {
+                    loader: 'css-loader',
+                    options: 
+                    {
+                        modules: true,
+                        localIdentName: '[name]__[local]___[hash:base64:5]'
+                    }
+                }, 
+              'sass-loader'] }
         ]
     },
     plugins: [
