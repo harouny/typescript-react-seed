@@ -23,6 +23,7 @@ module.exports = {
             { test: /\.ts(x?)$/, exclude: /node_modules/, use: ['babel-loader', 'ts-loader'] },
             { enforce: "pre", test: /\.js$/, use: ['source-map-loader'] },
             { test: /\.js$/, use:['babel-loader'], exclude: /node_modules/ },
+            { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']}
         ]
     },
     plugins: [
